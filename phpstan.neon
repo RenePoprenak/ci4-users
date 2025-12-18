@@ -1,0 +1,41 @@
+includes:
+  - vendor/codeigniter/phpstan-codeigniter/extension.neon
+
+parameters:
+  level: 6
+
+  paths:
+    - app
+    - tests
+
+  bootstrapFiles:
+    - phpstan-bootstrap.php
+
+  tmpDir: writable/cache/phpstan
+
+  excludePaths:
+    analyse:
+      - app/Views/*
+
+  codeigniter:
+    additionalServices:
+      - CodeIgniter\Shield\Config\Services
+
+  # aby ťa neotravovalo "not matched" keď sa niečo časom stratí
+  reportUnmatchedIgnoredErrors: false
+
+  ignoreErrors:
+    # CI4/Shield configy: netypované array
+    - identifier: missingType.iterableValue
+      path: app/Config/*.php
+
+    # Kint config (dev/debug)
+    - identifier: class.notFound
+      path: app/Config/Kint.php
+
+    # demo testy z app-starteru
+    - identifier: method.impossibleType
+      path: tests/database/ExampleDatabaseTest.php
+
+    - identifier: method.alreadyNarrowedType
+      path: tests/unit/HealthTest.php
