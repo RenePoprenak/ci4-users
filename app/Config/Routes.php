@@ -8,3 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 service('auth')->routes($routes);
+
+$routes->get('users', 'UsersController::index');
+$routes->get('users/(:num)', 'UsersController::show/$1');
