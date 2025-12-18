@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use CodeIgniter\Database\BaseBuilder;
 
 final class UserListModel extends Model
 {
@@ -10,7 +11,7 @@ final class UserListModel extends Model
     protected $primaryKey = 'id';
     protected $returnType = 'array';
 
-    public function baseWithEmail()
+    public function baseWithEmail(): BaseBuilder
     {
         return $this->builder()
             ->select('users.id, users.username, users.created_at, ai.secret AS email')

@@ -7,7 +7,7 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 
 final class UsersController extends BaseController
 {
-    public function index()
+    public function index(): string
     {
         $model = new UserListModel();
 
@@ -22,7 +22,7 @@ final class UsersController extends BaseController
         ]);
     }
 
-    public function show(int $id)
+    public function show(int $id): string
     {
         $model = new UserListModel();
 

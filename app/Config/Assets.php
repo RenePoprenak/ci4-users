@@ -6,11 +6,6 @@ use Tatter\Assets\Config\Assets as BaseAssets;
 
 class Assets extends BaseAssets
 {
-    /**
-     * Assets groups mapped to routes.
-     *
-     * @var array<string, array<string, array<int, string>>>
-     */
     public array $routes = [
         '*' => [
             'css' => [
