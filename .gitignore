@@ -126,3 +126,6 @@ _modules/*
 
 /results/
 /phpunit*.xml
+
+/public/assets/tabler/*
+/public/assets/tabler/
