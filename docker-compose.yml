@@ -1,6 +1,8 @@
 services:
   app:
-    image: shinsenter/php:8.4-fpm-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:80"
     environment:
