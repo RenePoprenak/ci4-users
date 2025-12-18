@@ -10,6 +10,7 @@
     failOnRisky="true"
     failOnWarning="true"
     cacheDirectory="build/.phpunit.cache">
+    <!--
     <coverage
         includeUncoveredFiles="true"
         pathCoverage="false"
@@ -22,6 +23,7 @@
             <text outputFile="php://stdout" showUncoveredFiles="false"/>
         </report>
     </coverage>
+    -->
     <testsuites>
         <testsuite name="App">
             <directory>./tests</directory>
