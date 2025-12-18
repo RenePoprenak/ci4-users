@@ -64,6 +64,7 @@ writable/debugbar/*
 !writable/debugbar/index.html
 
 writable/*
+!writable/.htaccess
 
 php_errors.log
 
