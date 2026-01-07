@@ -45,14 +45,15 @@
         }
     },
     "scripts": {
-        "test": "XDEBUG_MODE=off phpunit",
-        "stan": "phpstan analyse -c phpstan.neon --no-progress",
-
-        "cs:check": "php-cs-fixer fix --dry-run --diff --using-cache=no",
-        "cs:fix": "php-cs-fixer fix --diff --using-cache=no",
-
-        "rector:check": "rector process --dry-run",
-        "rector": "rector process"
+        "test": "phpunit",
+        "analyze": "vendor/bin/phpstan analyse -c phpstan.neon",
+        "lint": "php-cs-fixer fix --dry-run --diff",
+        "fix": "php-cs-fixer fix",
+        "ci": [
+            "@lint",
+            "@analyze",
+            "@test"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true

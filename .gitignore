@@ -130,3 +130,5 @@ _modules/*
 
 /public/assets/tabler/*
 /public/assets/tabler/
+
+.php-cs-fixer.cache

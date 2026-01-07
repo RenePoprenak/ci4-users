@@ -1,42 +1,16 @@
-includes:
-  - vendor/codeigniter/phpstan-codeigniter/extension.neon
-
 parameters:
-  level: 6
+    level: 8
 
-  paths:
-    - app
-    - tests
+    paths:
+        - app
 
-  bootstrapFiles:
-    - phpstan-bootstrap.php
+    # Views are not "PHP source code" for static analysis
+    excludePaths:
+        - app/Views
+        - app/Config
+        - app/Database/Seeds
 
-  tmpDir: writable/cache/phpstan
-
-  excludePaths:
-    analyse:
-      - app/Views/*
-
-  codeigniter:
-    additionalServices:
-      - CodeIgniter\Shield\Config\Services
-
-  # aby ťa neotravovalo "not matched" keď sa niečo časom stratí
-  reportUnmatchedIgnoredErrors: false
-
-  ignoreErrors:
-    - identifier: missingType.iterableValue
-      path: app/Config/*.php
-
-    - identifier: class.notFound
-      path: app/Config/Kint.php
-
-    - identifier: method.impossibleType
-      path: tests/database/ExampleDatabaseTest.php
-
-    - identifier: method.alreadyNarrowedType
-      path: tests/unit/HealthTest.php
-
-    # Tatter Assets: upstream PHPDoc mismatch vs reálna štruktúra routes
-    - identifier: property.defaultValue
-      path: app/Config/Assets.php
+    # So that PHPStan knows the basic CI4 helper functions (view(), esc(), service(), base_url(), ...)
+    bootstrapFiles:
+        - vendor/codeigniter4/framework/system/Common.php
+        - app/Common.php
