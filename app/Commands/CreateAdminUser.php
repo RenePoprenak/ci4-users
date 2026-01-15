@@ -8,6 +8,8 @@ use CodeIgniter\I18n\Time;
 
 final class CreateAdminUser extends BaseCommand
 {
+    //docker compose exec app php spark auth:create-admin
+    //php spark auth:create-admin
     protected $group       = 'Auth';
     protected $name        = 'auth:create-admin';
     protected $description = 'Create admin user and assign admin role';
