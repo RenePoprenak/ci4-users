@@ -441,10 +441,14 @@ class Auth extends ShieldAuth
      */
     public function loginRedirect(): string
     {
-        $session = session();
-        $url     = $session->getTempdata('beforeLoginUrl') ?? setting('Auth.redirects')['login'];
+        $url = session()->get('redirect_url');
 
-        return $this->getUrl($url);
+        if (is_string($url) && $url !== '') {
+            session()->remove('redirect_url');
+            return $url;
+        }
+
+        return site_url('/');
     }
 
     /**
