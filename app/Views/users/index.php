@@ -23,7 +23,7 @@
           <td><?= esc($user->username ?? '-') ?></td>
           <td><?= esc($user->email ?? '-') ?></td>
           <td class="text-end">
-            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('users/' . $user->id) ?>">
+            <a class="btn btn-sm btn-outline-primary" href="<?= route_to('users.show', $user->id) ?>">
               Detail
             </a>
           </td>

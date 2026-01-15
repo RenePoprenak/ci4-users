@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <div class="d-flex align-items-center justify-content-between mb-3">
   <h1 class="h2 mb-0">User #<?= esc($user->id) ?></h1>
-  <a class="btn btn-outline-secondary" href="<?= site_url('users') ?>">Späť</a>
+  <a class="btn btn-outline-secondary" href="<?= route_to('users.index') ?>">Späť</a>
 </div>
 
 <div class="card">

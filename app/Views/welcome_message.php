@@ -221,7 +221,7 @@
                     href="https://codeigniter.com/contribute" target="_blank">Contribute</a>
             </li>
             <li class="menu-item hidden"><a
-                    href="<?= site_url('users') ?>">Users</a>
+                    href="<?= route_to('users.index') ?>">Users</a>
             </li>
         </ul>
     </div>
