@@ -20,4 +20,8 @@ return [
 
     // Validation / errors
     'required'     => 'Pole {field} je povinné.',
+
+    // Placeholders
+    'emailPlaceholder'    => 'email@domena.sk',
+    'passwordPlaceholder' => '••••••••',
 ];
