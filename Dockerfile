@@ -7,7 +7,8 @@ WORKDIR /app
 
 COPY . /app
 
-RUN mkdir -p /app/writable/cache /app/writable/session /app/writable/logs \
- && chmod -R a+rwX /app/writable
+RUN phpaddmod mysqli pdo_mysql \
+    && mkdir -p /app/writable/cache /app/writable/session /app/writable/logs \
+    && chmod -R a+rwX /app/writable
 
 EXPOSE 80
