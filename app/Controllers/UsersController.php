@@ -2,14 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\UserListModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 final class UsersController extends BaseController
 {
     public function index(): string
     {
-        $model = new UserListModel();
 
         $users = $model->baseWithEmail()
             ->orderBy('users.id', 'DESC')
@@ -24,7 +22,6 @@ final class UsersController extends BaseController
 
     public function show(int $id): string
     {
-        $model = new UserListModel();
 
         $user = $model->baseWithEmail()
             ->where('users.id', $id)
