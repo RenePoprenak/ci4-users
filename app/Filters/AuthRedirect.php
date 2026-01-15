@@ -20,7 +20,7 @@ final class AuthRedirect implements FilterInterface
         session()->set('redirect_url', current_url(true)->__toString());
 
         // shield login page
-        return redirect()->to(site_url('login'));
+        return redirect()->to(route_to('login'))->withCookies();
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

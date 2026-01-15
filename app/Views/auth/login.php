@@ -13,7 +13,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="<?= site_url('login') ?>" method="post" autocomplete="off">
+                <form action="<?= route_to('login') ?>" method="post" autocomplete="off">
                 <?= csrf_field() ?>
 
                 <div class="mb-3">
