@@ -7,10 +7,10 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 // protected homepage
-$routes->get('/', 'Home::index', ['filter' => 'auth.redirect']);
+$routes->get('/', 'Home::index', ['filter' => 'admin.only']);
 
 // admin section (for now placeholder)
-$routes->group('admin', ['filter' => 'auth.redirect'], static function ($routes) {
+$routes->group('admin', ['filter' => 'admin.only'], static function ($routes) {
     $routes->get('/', 'Admin\Dashboard::index');
 });
 
@@ -18,5 +18,5 @@ $routes->group('admin', ['filter' => 'auth.redirect'], static function ($routes)
 service('auth')->routes($routes);
 
 // other routes
-$routes->get('users', 'UsersController::index', ['as' => 'users.index', 'filter' => 'auth.redirect']);
-$routes->get('users/(:num)', 'UsersController::show/$1', ['as' => 'users.show', 'filter' => 'auth.redirect']);
+$routes->get('users', 'UsersController::index', ['as' => 'users.index', 'filter' => 'admin.only']);
+$routes->get('users/(:num)', 'UsersController::show/$1', ['as' => 'users.show', 'filter' => 'admin.only']);
