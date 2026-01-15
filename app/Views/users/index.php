@@ -17,13 +17,13 @@
         </tr>
       </thead>
       <tbody>
-      <?php foreach ($users as $u): ?>
+      <?php foreach ($users as $user): ?>
         <tr>
-          <td><?= esc($u['id']) ?></td>
-          <td><?= esc($u['username'] ?? '-') ?></td>
-          <td><?= esc($u['email'] ?? '-') ?></td>
+          <td><?= esc($user->id) ?></td>
+          <td><?= esc($user->username ?? '-') ?></td>
+          <td><?= esc($user->email ?? '-') ?></td>
           <td class="text-end">
-            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('users/' . $u['id']) ?>">
+            <a class="btn btn-sm btn-outline-primary" href="<?= site_url('users/' . $user->id) ?>">
               Detail
             </a>
           </td>

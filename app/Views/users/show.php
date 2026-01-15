@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="d-flex align-items-center justify-content-between mb-3">
-  <h1 class="h2 mb-0">User #<?= esc($user['id']) ?></h1>
+  <h1 class="h2 mb-0">User #<?= esc($user->id) ?></h1>
   <a class="btn btn-outline-secondary" href="<?= site_url('users') ?>">Späť</a>
 </div>
 
@@ -10,16 +10,16 @@
   <div class="card-body">
     <dl class="row mb-0">
       <dt class="col-sm-3">ID</dt>
-      <dd class="col-sm-9"><?= esc($user['id']) ?></dd>
+      <dd class="col-sm-9"><?= esc($user->id) ?></dd>
 
       <dt class="col-sm-3">Username</dt>
-      <dd class="col-sm-9"><?= esc($user['username'] ?? '-') ?></dd>
+      <dd class="col-sm-9"><?= esc($user->username ?? '-') ?></dd>
 
       <dt class="col-sm-3">Email</dt>
-      <dd class="col-sm-9"><?= esc($user['email'] ?? '-') ?></dd>
+      <dd class="col-sm-9"><?= esc($user->email ?? '-') ?></dd>
 
       <dt class="col-sm-3">Created</dt>
-      <dd class="col-sm-9"><?= esc($user['created_at'] ?? '-') ?></dd>
+      <dd class="col-sm-9"><?= esc($user->created_at ?? '-') ?></dd>
     </dl>
   </div>
 </div>

@@ -3,38 +3,28 @@
 namespace App\Controllers;
 
 use CodeIgniter\Exceptions\PageNotFoundException;
-
+use CodeIgniter\Shield\Models\UserModel;
 final class UsersController extends BaseController
 {
     public function index(): string
     {
+        $users = model(UserModel::class)
+            ->withIdentities()
+            ->findAll();
 
-        $users = $model->baseWithEmail()
-            ->orderBy('users.id', 'DESC')
-            ->get(50) // jednoduché: top 50
-            ->getResultArray();
-
-        return view('users/index', [
-            'title' => 'Users',
-            'users' => $users,
-        ]);
+        return view('users/index', ['users' => $users]);
     }
 
     public function show(int $id): string
     {
+        $user = model(UserModel::class)
+            ->withIdentities()
+            ->findById($id);
 
-        $user = $model->baseWithEmail()
-            ->where('users.id', $id)
-            ->get()
-            ->getFirstRow('array');
-
-        if (! $user) {
-            throw PageNotFoundException::forPageNotFound('User not found');
+        if ($user === null) {
+            throw PageNotFoundException::forPageNotFound();
         }
 
-        return view('users/show', [
-            'title' => 'User #' . $user['id'],
-            'user'  => $user,
-        ]);
+        return view('users/show', ['user' => $user]);
     }
 }
