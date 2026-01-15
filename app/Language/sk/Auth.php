@@ -9,6 +9,9 @@ return [
     'email'        => 'E-mail',
     'password'     => 'Heslo',
 
+    //checkboxes
+    'rememberMe'   => 'Zapamätať si ma',
+
     // Titles / headings
     'loginTitle'   => 'Prihlásenie',
     'loginIntro'   => 'Prihláste sa do systému',
