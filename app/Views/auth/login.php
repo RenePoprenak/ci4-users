@@ -26,6 +26,15 @@
                     <input name="password" type="password" class="form-control" placeholder="<?= lang('Auth.passwordPlaceholder') ?>" required>
                 </div>
 
+                <div class="mb-3">
+                    <label class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" value="1">
+                        <span class="form-check-label">
+                            <?= lang('Auth.rememberMe') ?>
+                        </span>
+                    </label>
+                </div>
+
                 <div class="form-footer">
                     <button type="submit" class="btn btn-primary w-100">
                     <?= lang('Auth.login') ?>

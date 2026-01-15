@@ -210,7 +210,7 @@ class Auth extends ShieldAuth
         'field'              => 'user',
         'allowRemembering'   => true,
         'rememberCookieName' => 'remember',
-        'rememberLength'     => 30 * DAY,
+        'rememberLength'     => 7 * DAY,
     ];
 
     /**
