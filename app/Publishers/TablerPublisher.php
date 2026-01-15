@@ -6,24 +6,25 @@ use CodeIgniter\Publisher\Publisher;
 
 final class TablerPublisher extends Publisher
 {
+    private const VERSION = '1.4.0';
+    private const CDN     = 'https://cdn.jsdelivr.net/npm/@tabler/core@%s/dist/%s';
+
     public function publish(): bool
     {
-        $this->source      = ROOTPATH . 'app/ThirdParty/tabler';
-        $this->destination = FCPATH . 'assets/tabler';
+        $this->destination = FCPATH . 'assets/tabler/';
 
-        $css = $this->source . '/tabler.min.css';
-        $js  = $this->source . '/tabler.min.js';
-
-        if (! is_file($css) || ! is_file($js)) {
+        if (! is_dir($this->destination) && ! mkdir($this->destination, 0775, true) && ! is_dir($this->destination)) {
             return false;
         }
 
-        // addFile() dostane plnú cestu – FileCollection bude spokojný
-        $this->addFile($css);
-        $this->addFile($js);
+        $cssUrl = sprintf(self::CDN, self::VERSION, 'css/tabler.min.css');
+        $jsUrl  = sprintf(self::CDN, self::VERSION, 'js/tabler.min.js');
+
+        $this->addUri($cssUrl);
+        $this->addUri($jsUrl);
 
         $this->merge(false);
 
-        return parent::publish();
+        return $this->copy(true);
     }
 }

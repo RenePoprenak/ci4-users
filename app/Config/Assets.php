@@ -8,12 +8,8 @@ class Assets extends BaseAssets
 {
     public array $routes = [
         '*' => [
-            'css' => [
-                'assets/tabler/tabler.min.css',
-            ],
-            'js' => [
-                'assets/tabler/tabler.min.js',
-            ],
+            'tabler/tabler.min.css',
+            'tabler/tabler.min.js',
         ],
     ];
 }
