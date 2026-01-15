@@ -132,3 +132,4 @@ _modules/*
 /public/assets/tabler/
 
 .php-cs-fixer.cache
+phpstan.neon
