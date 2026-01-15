@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="d-flex align-items-center justify-content-between mb-3">
-  <h1 class="h2 mb-0">Users</h1>
+  <h1 class="h2 mb-0"><?= lang('Users.title') ?></h1>
 </div>
 
 <div class="card">
@@ -10,10 +10,10 @@
     <table class="table table-vcenter card-table">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th class="text-end">Akcie</th>
+          <th><?= lang('Users.id') ?></th>
+          <th><?= lang('Users.username') ?></th>
+          <th><?= lang('Users.email') ?></th>
+          <th class="text-end"><?= lang('Users.actions') ?></th>
         </tr>
       </thead>
       <tbody>
@@ -24,7 +24,7 @@
           <td><?= esc($user->email ?? '-') ?></td>
           <td class="text-end">
             <a class="btn btn-sm btn-outline-primary" href="<?= route_to('users.show', $user->id) ?>">
-              Detail
+              <?= lang('Users.detail') ?>
             </a>
           </td>
         </tr>
