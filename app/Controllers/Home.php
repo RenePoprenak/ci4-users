@@ -46,7 +46,7 @@ class Home extends BaseController
         return response()
             ->setHeader(
                 'HX-Push-Url',
-                site_url('/') . ($search !== '' ? ('?search=' . rawurlencode($search)) : '')
+                route_to('home') . ($search !== '' ? ('?search=' . rawurlencode($search)) : '')
             )
             ->setBody(view('home/_patients_table', [
                 'patients' => $patients,
