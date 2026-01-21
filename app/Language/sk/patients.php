@@ -13,4 +13,5 @@ return [
 
     'detail' => 'Detail',
     'detail_title' => 'Detail pacienta: {name}',
+    'search'=> 'Hľadať pacienta...',
 ];

@@ -20,11 +20,30 @@
     <div class="page-body">
         <div class="card">
         <div class="card-body">
+            <div class="mb-3" id="patientSearch">
+                <form id="patientSearch"
+                    hx-get="<?= route_to('patients.table') ?>"
+                    hx-target="#patientsTable"
+                    hx-swap="innerHTML"
+                    hx-include="this"
+                    hx-trigger="keyup changed delay:400ms from:input[name='search'], search from:input[name='search']"
+                >
+                    <input
+                        type="search"
+                        name="search"
+                        class="form-control"
+                        placeholder="<?= esc(lang('patients.search')) ?>"
+                        value="<?= esc($search ?? '') ?>"
+                    >
+                </form>
+            </div>
 
             <div id="patientsTable"
                 hx-get="<?= route_to('patients.table') ?>"
                 hx-trigger="load, reload"
-                hx-swap="innerHTML">
+                hx-target="this"
+                hx-swap="innerHTML"
+                hx-include="#patientSearch">
             </div>
 
         </div>

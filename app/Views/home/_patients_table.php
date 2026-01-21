@@ -41,7 +41,11 @@
 </div>
 
 <?php if (isset($pager)): ?>
-    <div class="mt-3">
+    <div class="mt-3"
+        hx-boost="true"
+        hx-target="#patientsTable"
+        hx-swap="innerHTML"
+        hx-include="#patientSearch">
         <?= $pager->links() ?>
     </div>
 <?php endif; ?>

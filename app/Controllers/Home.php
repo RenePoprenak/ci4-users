@@ -20,16 +20,39 @@ class Home extends BaseController
 
     public function patientsTable()
     {
+        /** @var PatientModel $model */
         $model = model(PatientModel::class);
 
-        $patients = $model->orderBy('last_name', 'ASC')
+        $search = trim((string) $this->request->getGet('search'));
+        if ($search !== '') {
+            $searchDigits = preg_replace('/\D+/', '', $search);
+
+            $model->groupStart()
+                ->like('last_name', $search)
+                ->orLike('first_name', $search);
+
+            if ($searchDigits !== '') {
+                $model->orLike('birth_number', $searchDigits);
+            }
+
+            $model->groupEnd();
+        }
+
+        $patients = $model
+            ->orderBy('last_name', 'ASC')
             ->orderBy('first_name', 'ASC')
             ->paginate(15);
 
-        return view('home/_patients_table', [
-            'patients' => $patients,
-            'pager'    => $model->pager,
-        ]);
+        return response()
+            ->setHeader(
+                'HX-Push-Url',
+                site_url('/') . ($search !== '' ? ('?search=' . rawurlencode($search)) : '')
+            )
+            ->setBody(view('home/_patients_table', [
+                'patients' => $patients,
+                'pager'    => $model->pager,
+                'search'   => $search,
+            ]));
     }
 
     public function patientDetail(int $id)
