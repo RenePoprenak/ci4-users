@@ -11,7 +11,7 @@
         <header class="navbar navbar-expand-md navbar-light d-print-none">
             <div class="container-xl">
                 <a class="navbar-brand" href="<?= base_url('/') ?>">
-                    CI4 Users
+                    <?= lang('essentials.header_title') ?>
                 </a>
             </div>
         </header>
@@ -21,6 +21,11 @@
                 <?= $this->renderSection('content') ?>
             </div>
         </div>
+    </div>
+
+    <div id="toastContainer"
+        class="toast-container position-fixed top-0 end-0 p-3"
+        style="z-index:1080">
     </div>
 </body>
 </html>
